@@ -14,6 +14,42 @@ execução.  */
 public class Ex019 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+
+        int quantPessoas, quantHomens = 0, quantMulheres = 0, quantHomens1_70 = 0;
+
+        System.out.println("Quantas pessoas deseja cadastrar: ");
+        quantPessoas = input.nextInt();
+        input.nextLine();
+
+        for(int i = 0; i < quantPessoas; i++){
+
+            char sexo;
+            float altura;
+
+            System.out.println("\nInforme o sexo: ");
+            sexo = input.nextLine().toUpperCase().charAt(0);
+
+            System.out.println("\nInforme a altura: ");
+            altura = input.nextFloat();
+            input.nextLine();
+
+            if(sexo == 'M'){
+                quantHomens++;
+                if(altura > 1.70f){
+                    quantHomens1_70++;
+                }
+            }else{
+                quantMulheres++;
+            }
+        }
+
+        quantPessoas = quantHomens+quantMulheres;
+
+        System.out.printf("\nHomens medidos: %d\n"
+                        + "Mulheres medidas: %d\n"
+                        + "Quantidade pessoas medidas: %d\n"
+                        + "Homens acima de 1,70 de altura: %d", quantHomens, quantMulheres, quantPessoas, quantHomens1_70);
+                        
     }
     
 }
